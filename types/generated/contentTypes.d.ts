@@ -531,7 +531,7 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
   };
   attributes: {
     benefits: Schema.Attribute.Blocks;
-    category: Schema.Attribute.String;
+    category: Schema.Attribute.Relation<'oneToOne', 'api::category.category'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -541,6 +541,7 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
       true
     >;
     ingredients: Schema.Attribute.Blocks;
+    isFeatured: Schema.Attribute.Boolean;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -551,7 +552,11 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
     price: Schema.Attribute.Decimal;
     publishedAt: Schema.Attribute.DateTime;
     reviews: Schema.Attribute.Relation<'oneToMany', 'api::review.review'>;
-    skinType: Schema.Attribute.String;
+    salesCount: Schema.Attribute.Decimal;
+    skin_type: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::skin-type.skin-type'
+    >;
     stock: Schema.Attribute.BigInteger;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &

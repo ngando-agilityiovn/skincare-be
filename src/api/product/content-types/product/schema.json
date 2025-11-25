@@ -42,12 +42,6 @@
     "usages": {
       "type": "blocks"
     },
-    "skinType": {
-      "type": "string"
-    },
-    "category": {
-      "type": "string"
-    },
     "stock": {
       "type": "biginteger"
     },
@@ -55,6 +49,22 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::review.review"
+    },
+    "skin_type": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::skin-type.skin-type"
+    },
+    "category": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::category.category"
+    },
+    "isFeatured": {
+      "type": "boolean"
+    },
+    "salesCount": {
+      "type": "decimal"
     }
   }
 }
